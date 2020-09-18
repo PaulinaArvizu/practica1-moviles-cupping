@@ -3,7 +3,7 @@ import 'package:estructura_practica_1/desserts/desserts_page.dart';
 import 'package:estructura_practica_1/drinks/hot_drinks_page.dart';
 import 'package:estructura_practica_1/grains/grains_page.dart';
 import 'package:estructura_practica_1/login.dart';
-import 'package:estructura_practica_1/models/product_dessert.dart';
+import 'package:estructura_practica_1/models/product_dessert.dart' as dessert;
 import 'package:estructura_practica_1/models/product_grains.dart';
 import 'package:estructura_practica_1/models/product_hot_drinks.dart';
 import 'package:estructura_practica_1/models/product_item_cart.dart';
@@ -14,20 +14,32 @@ import 'package:estructura_practica_1/home/item_home.dart';
 
 class Home extends StatefulWidget {
   final String title;
-  Home({Key key, this.title}) : super(key: key);
+  final dynamic product;
+  Home({
+    Key key,
+    this.title,
+    this.product,
+  }) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  Map<String, dynamic> addedProducts = {
-    "drinks": List<ProductHotDrinks>(),
-    "grains": List<ProductGrains>(),
-    "desserts": List<ProductDesserts>()
-  };
-  List<ProductItemCart> productsList;
+  // Map<String, dynamic> addedProducts = {
+  //   "drinks": List<ProductHotDrinks>(),
+  //   "grains": List<ProductGrains>(),
+  //   "desserts": List<ProductDesserts>()
+  // };
+  List<ProductItemCart> productsList = new List<ProductItemCart>();
   var _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _addToCart(widget.product);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +77,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           GestureDetector(
-            // TODO: Al hacer clic, que muestre un snackbar de "Proximamente"
+            // DONE: Al hacer clic, que muestre un snackbar de "Proximamente"
             onTap: () {
               _scaffoldKey.currentState
                 ..hideCurrentSnackBar() //ocultar snackbar anterior
@@ -163,12 +175,13 @@ class _HomeState extends State<Home> {
   }
 
   void _openHotDrinksPage() {
-    // TODO: completar en navigator pasando los parametros a la pagina de HotDrinksPage
+    // DONE: completar en navigator pasando los parametros a la pagina de HotDrinksPage
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
           return HotDrinksPage(
-              drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS));
+            drinksList: ProductRepository.loadProducts(ProductType.BEBIDAS),
+          );
         },
       ),
     );
@@ -213,6 +226,42 @@ class _HomeState extends State<Home> {
         builder: (context) {
           return Login();
         },
+      ),
+    );
+  }
+
+  void _addToCart(dynamic product) {
+    if (product == null) return;
+    String size;
+    if (product is ProductGrains) {
+      switch (product.productWeight) {
+        case ProductWeight.CUARTO:
+          size = 'CUARTO';
+          break;
+        default:
+          size = 'KILO';
+      }
+    } else if (product is ProductHotDrinks ||
+        product is dessert.ProductDesserts) {
+      switch (product.productSize) {
+        case ProductSize.CH:
+          size = "CHICO";
+          break;
+        case ProductSize.M:
+          size = 'MEDIANO';
+          break;
+        default:
+          size = 'GRANDE';
+      }
+    }
+
+    productsList.add(
+      ProductItemCart(
+        productTitle: product.productTitle,
+        productAmount: product.productAmount,
+        productPrice: product.productPrice,
+        productImage: product.productImage,
+        productSize: size,
       ),
     );
   }
