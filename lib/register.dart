@@ -149,7 +149,7 @@ class _RegisterState extends State<Register> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => Home(
-                              title: "APP_TITLE",
+                              title: "Inicio",
                             )));
               },
             ),
