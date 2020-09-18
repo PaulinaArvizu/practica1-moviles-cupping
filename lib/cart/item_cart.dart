@@ -39,7 +39,7 @@ class _ItemCartState extends State<ItemCart> {
           SizedBox(
             height: 12,
           ),
-          Text("${widget.product.productPrice}"),
+          Text("\$${widget.product.productPrice}"),
           SizedBox(
             height: 12,
           ),
@@ -57,8 +57,13 @@ class _ItemCartState extends State<ItemCart> {
 
   void _remProd() {
     setState(() {
-      --widget.product.productAmount;
+      if (widget.product.productAmount == 0) {
+        widget.product.productAmount = 0;
+        widget.onAmountUpdated(0);
+      } else {
+        --widget.product.productAmount;
+        widget.onAmountUpdated(-1 * widget.product.productPrice);
+      }
     });
-    widget.onAmountUpdated(-1 * widget.product.productPrice);
   }
 }
