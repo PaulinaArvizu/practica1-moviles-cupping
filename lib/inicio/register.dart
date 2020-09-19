@@ -1,4 +1,5 @@
 import 'package:estructura_practica_1/colors.dart';
+import 'package:estructura_practica_1/inicio/login.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home.dart';
@@ -167,8 +168,8 @@ class _RegisterState extends State<Register> {
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => SignIn()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
                 })
           ],
         ),
