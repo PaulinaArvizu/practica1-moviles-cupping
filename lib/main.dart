@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/utils/constants.dart';
 
 // import 'inicio.dart';
-import 'splash_screen_page.dart';
+import 'inicio/splash_screen_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,16 +16,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: Colors.blue[200],
         accentColor: color3,
-        // primaryColor: color5,
-        // textTheme: TextTheme(
-        //   headline6: TextStyle(color: Colors.greenAccent),
-        //   bodyText1: TextStyle(
-        //     color: Colors.redAccent,
-        //     fontSize: 42,
-        //     fontWeight: FontWeight.w900,
-        //   ),
-        // ),
-        // fontFamily: "OpenSans Light",
+        primaryColor: color5,
+        textTheme: TextTheme(
+          //   headline6: TextStyle(color: Colors.greenAccent),
+          bodyText1: TextStyle(
+            //     color: Colors.redAccent,
+            fontSize: 42,
+            //     fontWeight: FontWeight.w900,
+          ),
+        ),
+        fontFamily: "AkzidenzGrotesk BQ Medium",
       ),
       home: SplashScreen(),
     );
