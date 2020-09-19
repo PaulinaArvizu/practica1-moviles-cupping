@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
         accentColor: color3,
         primaryColor: color5,
         textTheme: TextTheme(
-          //   headline6: TextStyle(color: Colors.greenAccent),
-          bodyText1: TextStyle(
+            //   headline6: TextStyle(color: Colors.greenAccent),
+            // bodyText1: TextStyle(
             //     color: Colors.redAccent,
-            fontSize: 42,
+            // fontSize: 42,
             //     fontWeight: FontWeight.w900,
-          ),
-        ),
+            // ),
+            ),
         fontFamily: "AkzidenzGrotesk BQ Medium",
       ),
       home: SplashScreen(),
