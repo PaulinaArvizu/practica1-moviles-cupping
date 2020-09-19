@@ -42,7 +42,13 @@ class _CartState extends State<Cart> {
           ),
           Positioned(
             bottom: 0,
-            child: Text("Total: \$$_total"),
+            left: MediaQuery.of(context).size.width * 0.08,
+            child: Column(
+              children: <Widget>[
+                Text("Total:"),
+                Text("\$$_total"),
+              ],
+            ),
           ),
         ],
       ),
