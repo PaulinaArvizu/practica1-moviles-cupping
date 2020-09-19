@@ -1,3 +1,4 @@
+import 'package:estructura_practica_1/colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemCart extends StatefulWidget {
@@ -17,31 +18,54 @@ class _ItemCartState extends State<ItemCart> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: color1,
       margin: EdgeInsets.all(24),
-      child: Column(
+      child: Row(
         children: <Widget>[
-          SizedBox(
-            height: 12,
+          Container(
+            margin: EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
+            width: 150,
+            child: Image.network(widget.product.productImage),
           ),
-          Text("${widget.product.productTitle}"),
-          SizedBox(
-            height: 12,
-          ),
-          IconButton(icon: Icon(Icons.add_circle_outline), onPressed: _addProd),
-          SizedBox(
-            height: 12,
-          ),
-          IconButton(icon: Icon(Icons.remove_circle), onPressed: _remProd),
-          SizedBox(
-            height: 12,
-          ),
-          Text("${widget.product.productAmount}"),
-          SizedBox(
-            height: 12,
-          ),
-          Text("\$${widget.product.productPrice}"),
-          SizedBox(
-            height: 12,
+          Container(
+            padding: EdgeInsets.only(top: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text("${widget.product.productTitle}"),
+                SizedBox(
+                  height: 12,
+                ),
+                Text("${widget.product.productSize}"),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.remove_circle_outline),
+                        onPressed: _remProd),
+                    Text("${widget.product.productAmount}"),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    IconButton(
+                        icon: Icon(Icons.add_circle_outline),
+                        onPressed: _addProd),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Text("\$${widget.product.productPrice}"),
+                  ],
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+              ],
+            ),
           ),
         ],
       ),
