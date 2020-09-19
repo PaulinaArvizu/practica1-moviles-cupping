@@ -14,11 +14,9 @@ import 'package:estructura_practica_1/home/item_home.dart';
 
 class Home extends StatefulWidget {
   final String title;
-  final dynamic product;
   Home({
     Key key,
     this.title,
-    this.product,
   }) : super(key: key);
 
   @override
@@ -37,7 +35,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    _addToCart(widget.product);
+    // _addToCart(widget.product);
   }
 
   @override
@@ -184,7 +182,11 @@ class _HomeState extends State<Home> {
           );
         },
       ),
-    );
+    ).then((value) {
+      print("valor:");
+      print(value);
+      _addToCart(value);
+    });
   }
 
   void _openGrainsPage() {
@@ -195,7 +197,11 @@ class _HomeState extends State<Home> {
               grainsList: ProductRepository.loadProducts(ProductType.GRANO));
         },
       ),
-    );
+    ).then((value) {
+      print("valor:");
+      print(value);
+      _addToCart(value);
+    });
   }
 
   void _openDessertPage() {
@@ -207,7 +213,11 @@ class _HomeState extends State<Home> {
                   ProductRepository.loadProducts(ProductType.POSTRES));
         },
       ),
-    );
+    ).then((value) {
+      print("valor:");
+      print(value);
+      _addToCart(value);
+    });
   }
 
   void _openCartPage() {
@@ -236,22 +246,28 @@ class _HomeState extends State<Home> {
     if (product is ProductGrains) {
       switch (product.productWeight) {
         case ProductWeight.CUARTO:
-          size = 'CUARTO';
+          size = '250 G';
+          break;
+        case ProductWeight.KILO:
+          size = '1 KG';
           break;
         default:
-          size = 'KILO';
+          size = 'No seleccionado';
       }
-    } else if (product is ProductHotDrinks ||
+    } else if (product is dessert.ProductDesserts ||
         product is dessert.ProductDesserts) {
       switch (product.productSize) {
         case ProductSize.CH:
-          size = "CHICO";
+          size = "Chico";
           break;
         case ProductSize.M:
-          size = 'MEDIANO';
+          size = 'Mediano';
+          break;
+        case ProductSize.G:
+          size = 'Grande';
           break;
         default:
-          size = 'GRANDE';
+          size = 'No seleccionado';
       }
     }
 
@@ -262,6 +278,7 @@ class _HomeState extends State<Home> {
         productPrice: product.productPrice,
         productImage: product.productImage,
         productSize: size,
+        liked: product.liked,
       ),
     );
   }
