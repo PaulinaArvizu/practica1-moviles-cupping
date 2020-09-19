@@ -1,6 +1,9 @@
+import 'package:estructura_practica_1/payment/payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:estructura_practica_1/cart/item_cart.dart';
 import 'package:estructura_practica_1/models/product_item_cart.dart';
+
+import '../colors.dart';
 
 class Cart extends StatefulWidget {
   final List<ProductItemCart> productsList;
@@ -47,6 +50,28 @@ class _CartState extends State<Cart> {
               children: <Widget>[
                 Text("Total:"),
                 Text("\$$_total"),
+                MaterialButton(
+                  color: color3,
+                  child: Text(
+                    "PAGAR",
+                    style: TextStyle(
+                      color: color7,
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                    color: color3,
+                  )),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Payment();
+                        },
+                      ),
+                    );
+                  },
+                )
               ],
             ),
           ),
