@@ -1,5 +1,5 @@
 import 'package:estructura_practica_1/colors.dart';
-import 'package:estructura_practica_1/inicio.dart';
+import 'package:estructura_practica_1/inicio/inicio.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

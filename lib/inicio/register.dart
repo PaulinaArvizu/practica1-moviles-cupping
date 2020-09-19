@@ -1,7 +1,7 @@
 import 'package:estructura_practica_1/colors.dart';
 import 'package:flutter/material.dart';
 
-import 'home/home.dart';
+import '../home/home.dart';
 
 class Register extends StatefulWidget {
   @override

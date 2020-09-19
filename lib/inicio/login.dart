@@ -1,8 +1,8 @@
 import 'package:estructura_practica_1/colors.dart';
-import 'package:estructura_practica_1/register.dart';
+import 'package:estructura_practica_1/inicio/register.dart';
 import 'package:flutter/material.dart';
 
-import 'home/home.dart';
+import '../home/home.dart';
 
 class Login extends StatefulWidget {
   @override
