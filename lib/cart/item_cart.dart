@@ -25,6 +25,7 @@ class _ItemCartState extends State<ItemCart> {
           Container(
             margin: EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
             width: 150,
+            height: 150,
             child: Image.network(widget.product.productImage),
           ),
           Container(
