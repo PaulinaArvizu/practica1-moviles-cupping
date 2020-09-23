@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
   }
 
   void _openLoginPage() {
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (context) {
           return Login();
