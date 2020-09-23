@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             //     fontWeight: FontWeight.w900,
             // ),
             ),
-        fontFamily: "AkzidenzGrotesk BQ Medium",
+        fontFamily: "Open Sans Light",
       ),
       home: SplashScreen(),
     );
