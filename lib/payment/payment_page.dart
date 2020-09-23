@@ -111,6 +111,47 @@ class _PaymentState extends State<Payment> {
   }
 
   void _openDialog() {
-    print("dialog");
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              Image.network(
+                  "https://m.europages.com/filestore/opt/product/ba/e2/product_8cfb4526.jpg"),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Image.network(
+                        "https://static.vecteezy.com/system/resources/previews/000/599/173/non_2x/coffee-icon-vector.jpg"),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Text("Orden exitosa!"),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          content: Text(
+            "Tu orden ha sido registrada, para más información busca en la opción historial de compras en tu perfil.",
+            style: TextStyle(
+              fontFamily: "Open Sans Light",
+              fontSize: 12,
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Aceptar"),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
