@@ -19,12 +19,6 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
   bool _selectedG = false;
 
   @override
-  void initState() {
-    super.initState();
-    widget.drink.productSize = ProductSize.CH;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: color7,
