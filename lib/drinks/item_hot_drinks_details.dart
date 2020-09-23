@@ -14,9 +14,15 @@ class ItemHotDrinksDetails extends StatefulWidget {
 }
 
 class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
-  bool _selectedCH = true;
-  bool _selectedM = false;
+  bool _selectedCH = false;
+  bool _selectedM = true;
   bool _selectedG = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.drink.productSize = ProductSize.CH;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -199,6 +205,7 @@ class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
                     onPressed: () {
                       ++widget.drink.productAmount;
                       Navigator.of(context).pop(widget.drink);
+                      print(widget.drink);
                     },
                   ),
                 ),

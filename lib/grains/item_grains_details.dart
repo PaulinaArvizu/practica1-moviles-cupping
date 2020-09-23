@@ -14,8 +14,8 @@ class ItemGrainsDetails extends StatefulWidget {
 }
 
 class _ItemGrainsDetailsState extends State<ItemGrainsDetails> {
-  bool _selectedC = true;
-  bool _selectedK = false;
+  bool _selectedC = false;
+  bool _selectedK = true;
 
   @override
   Widget build(BuildContext context) {

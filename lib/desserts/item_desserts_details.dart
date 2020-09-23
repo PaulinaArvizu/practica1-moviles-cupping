@@ -14,8 +14,8 @@ class ItemDessertsDetails extends StatefulWidget {
 }
 
 class _ItemDessertsDetailsState extends State<ItemDessertsDetails> {
-  bool _selectedCH = true;
-  bool _selectedM = false;
+  bool _selectedCH = false;
+  bool _selectedM = true;
   bool _selectedG = false;
 
   @override
