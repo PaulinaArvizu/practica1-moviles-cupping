@@ -12,7 +12,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   var _usernameController = TextEditingController();
   var _passwordController = TextEditingController();
-  bool accept = false;
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -66,13 +66,29 @@ class _LoginState extends State<Login> {
                   color: color7,
                 ),
                 controller: _passwordController,
-                obscureText: true,
+                obscureText: _obscureText,
                 decoration: new InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: color7),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: color7),
+                  ),
+                  suffixIcon: Padding(
+                    padding: EdgeInsets.only(top: 1.0),
+                    child: IconButton(
+                      color: color4,
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        setState(
+                          () {
+                            _obscureText = !_obscureText;
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -87,7 +103,7 @@ class _LoginState extends State<Login> {
                   borderRadius: BorderRadius.all(Radius.circular(3.0)),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) {
                         return Home(
@@ -130,7 +146,7 @@ class _LoginState extends State<Login> {
                 textAlign: TextAlign.center,
               ),
               onPressed: () {
-                Navigator.push(context,
+                Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => Register()));
               },
             ),

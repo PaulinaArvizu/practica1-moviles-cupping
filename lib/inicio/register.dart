@@ -94,27 +94,27 @@ class _RegisterState extends State<Register> {
                 controller: _passwordController,
                 obscureText: _obscureText,
                 decoration: new InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: color7),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: color7),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: color7),
+                  ),
+                  suffixIcon: Padding(
+                    padding: EdgeInsets.only(top: 1.0),
+                    child: IconButton(
+                      color: color4,
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: color7),
-                    ),
-                    suffixIcon: Padding(
-                        padding: EdgeInsets.only(top: 1.0),
-                        child: IconButton(
-                          color: color4,
-                          icon: Icon(
-                            _obscureText
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                        ))),
+                  ),
+                ),
               ),
             ),
             Row(
@@ -146,7 +146,7 @@ class _RegisterState extends State<Register> {
                 borderRadius: BorderRadius.all(Radius.circular(3.0)),
               ),
               onPressed: () async {
-                Navigator.push(
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => Home(
@@ -168,7 +168,7 @@ class _RegisterState extends State<Register> {
                   textAlign: TextAlign.center,
                 ),
                 onPressed: () {
-                  Navigator.push(context,
+                  Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Login()));
                 })
           ],

@@ -34,7 +34,7 @@ class _InicioState extends State<Inicio> {
                   borderRadius: BorderRadius.all(Radius.circular(3.0)),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) {
                         return Register();
@@ -54,7 +54,7 @@ class _InicioState extends State<Inicio> {
                   borderRadius: BorderRadius.all(Radius.circular(3.0)),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
+                  Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) {
                         return Login();
