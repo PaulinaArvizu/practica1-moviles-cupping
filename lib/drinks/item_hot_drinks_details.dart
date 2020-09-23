@@ -14,7 +14,7 @@ class ItemHotDrinksDetails extends StatefulWidget {
 }
 
 class _ItemHotDrinksDetailsState extends State<ItemHotDrinksDetails> {
-  bool _selectedCH = false;
+  bool _selectedCH = true;
   bool _selectedM = false;
   bool _selectedG = false;
 
