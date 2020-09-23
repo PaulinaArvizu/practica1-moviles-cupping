@@ -82,8 +82,8 @@ class _ItemCartState extends State<ItemCart> {
 
   void _remProd() {
     setState(() {
-      if (widget.product.productAmount == 0) {
-        widget.product.productAmount = 0;
+      if (widget.product.productAmount == 1) {
+        widget.product.productAmount = 1;
         widget.onAmountUpdated(0);
       } else {
         --widget.product.productAmount;
