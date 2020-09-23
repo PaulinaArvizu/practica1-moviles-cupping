@@ -138,7 +138,6 @@ class _PaymentState extends State<Payment> {
           content: Text(
             "Tu orden ha sido registrada, para más información busca en la opción historial de compras en tu perfil.",
             style: TextStyle(
-              fontFamily: "Open Sans Light",
               fontSize: 12,
             ),
           ),
