@@ -183,8 +183,8 @@ class _HomeState extends State<Home> {
         },
       ),
     ).then((value) {
-      print("valor:");
-      print(value);
+      // print("valor:");
+      // print(value);
       _addToCart(value);
     });
   }
@@ -198,8 +198,8 @@ class _HomeState extends State<Home> {
         },
       ),
     ).then((value) {
-      print("valor:");
-      print(value);
+      // print("valor:");
+      // print(value);
       _addToCart(value);
     });
   }
@@ -214,8 +214,8 @@ class _HomeState extends State<Home> {
         },
       ),
     ).then((value) {
-      print("valor:");
-      print(value);
+      // print("valor:");
+      // print(value);
       _addToCart(value);
     });
   }
@@ -241,9 +241,11 @@ class _HomeState extends State<Home> {
   }
 
   void _addToCart(dynamic product) {
+    print("add to cart");
     if (product == null) return;
     String size;
     if (product is ProductGrains) {
+      // print("size = ${product.productWeight}");
       switch (product.productWeight) {
         case ProductWeight.CUARTO:
           size = '250 G';
@@ -254,8 +256,9 @@ class _HomeState extends State<Home> {
         default:
           size = 'No seleccionado';
       }
-    } else if (product is dessert.ProductDesserts ||
+    } else if (product is ProductHotDrinks ||
         product is dessert.ProductDesserts) {
+      print("size = ${product.productSize}");
       switch (product.productSize) {
         case ProductSize.CH:
           size = "Chico";
