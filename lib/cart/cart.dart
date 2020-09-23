@@ -48,8 +48,14 @@ class _CartState extends State<Cart> {
             left: MediaQuery.of(context).size.width * 0.08,
             child: Column(
               children: <Widget>[
-                Text("Total:"),
-                Text("\$$_total"),
+                Text(
+                  "Total:",
+                  style: TextStyle(fontSize: 20),
+                ),
+                Text(
+                  "$_total MX\$",
+                  style: TextStyle(fontSize: 30),
+                ),
                 MaterialButton(
                   color: color3,
                   child: Text(
